@@ -79,4 +79,3 @@ OPTIONS (table_name 'managers');
 ```sql
 SELECT * FROM external_managers_table;
 ```
-# postgres_fdw_extension
