@@ -1,0 +1,7 @@
+**/pgadmins/
+**/postgres_1/
+**/postgres_2/
+**/audio/
+.idea
+.DS_Store
+*.mov
