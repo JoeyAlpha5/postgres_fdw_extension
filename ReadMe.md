@@ -50,16 +50,21 @@ CREATE TABLE IF NOT EXISTS public.managers
 
 5. Connect to `database_1` and create the foreign data wrapper:
 ```sql
+
+--- 0. Install the extension
 CREATE EXTENSION postgres_fdw;
 
+--- 1. Create the foreign server
 CREATE SERVER database_2
 FOREIGN DATA WRAPPER postgres_fdw
 OPTIONS (host 'db-2', dbname 'database_2', port '5432');
 
+--- 2. Create the user mapping
 CREATE USER MAPPING FOR database_1
 SERVER database_2
 OPTIONS (user 'database_2', password 'database_2');
 
+--- 3. Create the foreign table
 CREATE FOREIGN TABLE external_managers_table
 (
     manager_id integer,
