@@ -1,5 +1,8 @@
 # **postgres_fdw tutorial**
 
+### **YouTube video:**
+[![PostgreSQL Foreign Data Wrapper (postgres_fdw) Tutorial](https://img.youtube.com/vi/G6gVuVms0tA/0.jpg)](https://youtu.be/G6gVuVms0tA)
+
 The `postgres_fdw` foreign data wrapper extension
 allows you to access data stored in a PostgreSQL database on a remote server.
 
