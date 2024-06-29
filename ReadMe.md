@@ -44,7 +44,7 @@ that connects to `database_2` and accesses the `managers` table. Please see the 
 ```
 
 
-#### 2 Postgres servers wit the fdw connection
+#### 2 Postgres servers with the fdw connection
 
 ```plaintext
 +----------------+                  |                  +----------------+
