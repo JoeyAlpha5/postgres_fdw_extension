@@ -8,7 +8,75 @@ allows you to access data stored in a PostgreSQL database on a remote server.
 
 The docker-compose file in this directory sets up two PostgreSQL servers, `database_1` and `database_2`.
 To demonstrate the use of the `postgres_fdw` extension, we will create a foreign data wrapper in `database_1` 
-that connects to `database_2` and accesses the `managers` table.
+that connects to `database_2` and accesses the `managers` table. Please see the diagrams below:
+
+#### 2 Postgres servers without the fdw connection
+
+```markdown
++----------------+                  |                  +----------------+
+|                |                  |                  |                |
+|  Postgres      |                  |                  |  Postgres      |
+|  Server 1      |                  |                  |  Server 2      |
+|                |                  |                  |                |
+|  database_1    |                  |                  |  database_2    |
+|                |                  |                  |                |
+|  +-----------+ |                  |                  |  +-----------+ |
+|  | employees | |                  |                  |  | managers  | |
+|  +-----------+ |                  |                  |  +-----------+ |
+|                |                  |                  |                |
++----------------+                  |                  +----------------+
+          |                         |                          |
+          |                         |                          |
+          |                         |                          |
+          |                         |                          |
+          |                         |                          |
+          |                         |                          |
++-------------------+               |               +-------------------------+
+|   employees       |               |               |     managers            |
++-------------------+               |               +-------------------------+
+| employee_id       |               |               | manager_id              |
+| first_name        |               |               | employee_id             |
+| last_name         |               |               | experience_years        |
+| email             |               |               +-------------------------+
+| department        |               |
++-------------------+               |
+
+```
+
+
+#### 2 Postgres servers wit the fdw connection
+
+```markdown
++----------------+                  |                  +----------------+
+|                |                  |                  |                |
+|  Postgres      |                  |                  |  Postgres      |
+|  Server 1      |                  |                  |  Server 2      |
+|                |                  |                  |                |
+|  database_1    |                  |                  |  database_2    |
+|                |                  |                  |                |
+|  +-----------+ |                  |                  |  +-----------+ |
+|  | employees | |                  |                  |  | managers  | |
+|  +-----------+ |                  |                  |  +-----------+ |
+|  | managers  | |  <---------------|----------------- |                |
+|  | (foreign  | |  FDW connection  |                  |                |
+|  |  table)   | |                  |                  |                |
++----------------+                  |                  +----------------+
+          |                         |                          |
+          |                         |                          |
+          |                         |                          |
+          |                         |                          |
+          |                         |                          |
+          |                         |                          |
++-------------------+               |               +-------------------------+
+|   employees       |               |               |     managers            |
++-------------------+               |               +-------------------------+
+| employee_id       |               |               | manager_id              |
+| first_name        |               |               | employee_id             |
+| last_name         |               |               | experience_years        |
+| email             |               |               +-------------------------+
+| department        |               |
++-------------------+               |
+```
 
 To run the example, execute the following command:
 
@@ -82,3 +150,4 @@ OPTIONS (table_name 'managers');
 ```sql
 SELECT * FROM external_managers_table;
 ```
+
