@@ -10,7 +10,7 @@ The docker-compose file in this directory sets up two PostgreSQL servers, `datab
 To demonstrate the use of the `postgres_fdw` extension, we will create a foreign data wrapper in `database_1` 
 that connects to `database_2` and accesses the `managers` table. Please see the diagrams below:
 
-#### 2 Postgres servers without the fdw connection
+#### Two Postgres servers without the fdw connection
 
 ```plaintext
 +----------------+                  |                  +----------------+
@@ -44,7 +44,7 @@ that connects to `database_2` and accesses the `managers` table. Please see the 
 ```
 
 
-#### 2 Postgres servers with the fdw connection
+#### Two Postgres servers with the fdw connection
 
 ```plaintext
 +----------------+                  |                  +----------------+
