@@ -100,10 +100,10 @@ docker-compose up -d
 CREATE TABLE IF NOT EXISTS public.employees
 (
     employee_id integer NOT NULL,
-    first_name character varying(50) COLLATE pg_catalog."default",
-    last_name character varying(50) COLLATE pg_catalog."default",
-    email character varying(100) COLLATE pg_catalog."default",
-    department character varying(50) COLLATE pg_catalog."default",
+    first_name character varying(50),
+    last_name character varying(50),
+    email character varying(100),
+    department character varying(50),
     CONSTRAINT employees_pkey PRIMARY KEY (employee_id)
 )
 ```
