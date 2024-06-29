@@ -91,7 +91,7 @@ docker-compose up -d
      - Username: `database_1`
      - Password: `database_1`
    - `database_2`:
-     - Hostname: `db-1`
+     - Hostname: `db-2`
      - Username: `database_2`
      - Password: `database_2`
 
