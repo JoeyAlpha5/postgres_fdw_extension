@@ -57,7 +57,7 @@ that connects to `database_2` and accesses the `managers` table. Please see the 
 |  +-----------+ |                  |                  |  +-----------+ |
 |  | employees | |                  |                  |  | managers  | |
 |  +-----------+ |                  |                  |  +-----------+ |
-|  | managers  | |  <---------------|----------------- |                |
+|  | managers  | |  ----------------|----------------> |                |
 |  | (foreign  | |  FDW connection  |                  |                |
 |  |  table)   | |                  |                  |                |
 +----------------+                  |                  +----------------+
