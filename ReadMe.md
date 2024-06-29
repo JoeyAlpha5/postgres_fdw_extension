@@ -3,8 +3,8 @@
 ### **YouTube video:**
 [![PostgreSQL Foreign Data Wrapper (postgres_fdw) Tutorial](https://img.youtube.com/vi/G6gVuVms0tA/0.jpg)](https://youtu.be/G6gVuVms0tA)
 
-The `postgres_fdw` foreign data wrapper extension
-allows you to access data stored in a PostgreSQL database on a remote server.
+The Postgres foreign data wrapper (`postgres_fdw`) extension can be used to retrieve or access data
+on other PostgreSQL servers.
 
 The docker-compose file in this directory sets up two PostgreSQL servers, `database_1` and `database_2`.
 To demonstrate the use of the `postgres_fdw` extension, we will create a foreign data wrapper in `database_1` 
