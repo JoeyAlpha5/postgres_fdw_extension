@@ -164,7 +164,7 @@ CREATE FOREIGN TABLE external_managers_table
 (
     manager_id integer,
     employee_id integer,
-    experience_years integer,
+    experience_years integer
 )
 SERVER database_2
 OPTIONS (table_name 'managers');
