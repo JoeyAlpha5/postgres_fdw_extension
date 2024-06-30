@@ -119,7 +119,31 @@ CREATE TABLE IF NOT EXISTS public.managers
 )
 ``` 
 
-5. Connect to `database_1` and create the foreign data wrapper:
+5. Insert some data into the `employees` table in `database_1`:
+```sql
+INSERT INTO public.employees (employee_id, first_name, last_name, email, department) VALUES
+(1, 'John', 'Doe', 'john.doe@example.com', 'Sales'),
+(2, 'Jane', 'Smith', 'jane.smith@example.com', 'HR'),
+(3, 'Michael', 'Johnson', 'michael.johnson@example.com', 'IT'),
+(4, 'Patricia', 'Brown', 'patricia.brown@example.com', 'Finance'),
+(5, 'Robert', 'Jones', 'robert.jones@example.com', 'Marketing'),
+(6, 'Linda', 'Miller', 'linda.miller@example.com', 'Sales'),
+(7, 'William', 'Davis', 'william.davis@example.com', 'HR'),
+(8, 'Elizabeth', 'Garcia', 'elizabeth.garcia@example.com', 'IT'),
+(9, 'James', 'Martinez', 'james.martinez@example.com', 'Finance'),
+(10, 'Mary', 'Hernandez', 'mary.hernandez@example.com', 'Marketing');
+```
+
+6. Insert some data into the `managers` table in `database_2`:
+```sql
+INSERT INTO public.managers (manager_id, employee_id, experience_years) VALUES
+(1, 1, 5),
+(2, 2, 7),
+(3, 3, 10),
+(4, 4, 8);
+```
+
+7. Connect to `database_1` and create the foreign data wrapper:
 ```sql
 
 --- 0. Install the extension
